@@ -14,7 +14,6 @@ const Page = async () => {
     pageNumber: 1,
     pageSize: 25,
   });
-  console.log(result.communities);
   return (
     <section>
       <h1 className="head-text mb-10">Communities</h1>
