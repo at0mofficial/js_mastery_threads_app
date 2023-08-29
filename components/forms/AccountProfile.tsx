@@ -24,7 +24,7 @@ import { usePathname, useRouter } from "next/navigation";
 interface Props {
   user: {
     id: string;
-    objectID: string;
+    objectId: string;
     username: string;
     name: string;
     bio: string;
@@ -76,7 +76,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
       }
     }
     await updateUser({
-      userID: user.id,
+      userId: user.id,
       username: values.username,
       name: values.name,
       bio: values.bio,

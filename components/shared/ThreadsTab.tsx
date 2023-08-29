@@ -2,17 +2,23 @@ import { fetchUserPosts } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 import React from "react";
 import ThreadCard from "../cards/ThreadCard";
+import { fetchCommunityPosts } from "@/lib/actions/community.actions";
 
 const ThreadsTab = async ({
-  currentUserID,
-  accountID,
+  currentUserId,
+  accountId,
   accountType,
 }: {
-  currentUserID: string;
-  accountID: string;
+  currentUserId: string;
+  accountId: string;
   accountType: string;
 }) => {
-  let result = await fetchUserPosts(accountID);
+  let result: any;
+  if (accountType === "Community") {
+    result = await fetchCommunityPosts(accountId);
+  } else {
+    result = await fetchUserPosts(accountId);
+  }
   if (!result) redirect("/");
   return (
     <section className="mt-9 flex flex-col gap-10">
@@ -20,8 +26,8 @@ const ThreadsTab = async ({
         <ThreadCard
           key={thread._id}
           id={thread._id}
-          currentUserID={currentUserID}
-          parentID={thread.parentID}
+          currentUserId={currentUserId}
+          parentId={thread.parentId}
           content={thread.text}
           author={
             accountType === "User"

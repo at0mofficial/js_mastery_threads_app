@@ -12,7 +12,7 @@ const threadSchema = new mongoose.Schema({
     ref: "Community",
   },
   createdAt: { type: Date, default: Date.now },
-  parentID: {
+  parentId: {
     type: String,
   },
   children: [{

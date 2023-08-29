@@ -14,8 +14,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
   return (
     <section>
       <ProfileHeader
-        accountID={userInfo.id}
-        authUserID={userInfo.id}
+        accountId={userInfo.id}
+        authUserId={userInfo.id}
         name={userInfo.name}
         username={userInfo.username}
         imgUrl={userInfo.image}
@@ -43,8 +43,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
           {profileTabs.map((tab)=>(
                 <TabsContent key={`content-${tab.label}`} value={tab.value} className="w-full text-light-1" >
                         <ThreadsTab 
-                            currentUserID={user.id}
-                            accountID={userInfo.id}
+                            currentUserId={user.id}
+                            accountId={userInfo.id}
                             accountType="User"
                         />
                 </TabsContent>

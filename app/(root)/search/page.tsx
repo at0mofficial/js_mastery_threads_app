@@ -8,7 +8,7 @@ const Page = async () => {
   const userInfo = await fetchUser(user.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
   const result = await fetchUsers({
-    userID: user.id,
+    userId: user.id,
     searchString: "",
     pageNumber: 1,
     pageSize: 25,

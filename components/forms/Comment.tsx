@@ -19,13 +19,13 @@ import { addCommentToThread } from "@/lib/actions/thread.actions";
 // import { addComment } from "@/lib/actions/thread.actions";
 
 const Comment = ({
-  threadID,
+  threadId,
   currentUserImg,
-  currentUserID,
+  currentUserId,
 }: {
-  threadID: string;
+  threadId: string;
   currentUserImg: string;
-  currentUserID: string;
+  currentUserId: string;
 }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -39,9 +39,9 @@ const Comment = ({
 
   const onSubmit = async (values: z.infer<typeof CommentValidations>) => {
     await addCommentToThread({
-      threadID: threadID,
+      threadId: threadId,
       commentText: values.thread,
-      userID: JSON.parse(currentUserID),
+      userId: JSON.parse(currentUserId),
       path: pathname,
     });
   };
