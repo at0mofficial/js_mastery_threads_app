@@ -16,7 +16,7 @@ const communitySchema = new mongoose.Schema({
   members: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Thread",
+      ref: "User",
     },
   ],
 });
