@@ -63,7 +63,6 @@ export async function createThread({
 }: Params) {
   try {
     connectToDB();
-    throw new Error(`Failed to create thread 1234`);
 
     const communityIdObject = await Community.findOne(
       { id: communityId },
